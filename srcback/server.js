@@ -1,8 +1,9 @@
 var express = require('express');
+var colors = require('colors');
 var app = express();
 
 var cliLogger = function (req, res, next) {
-  console.log(JSON.stringify(req));
+  console.log(req.originalUrl.yellow);
   next();
 };
 
