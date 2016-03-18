@@ -9,12 +9,13 @@ var cliLogger = function (req, res, next) {
 
 app.use(cliLogger);
 
-app.use(express.static('../binfront'));
+app.use(express.static('binfront'));
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
 app.listen(process.env.C9_PORT, function () {
+  console.log('__dirname:' + __dirname);
   console.log('Express server listening on port '+ process.env.C9_PORT +'!');
 });

@@ -18,6 +18,7 @@ module.exports = {
   entry: {
     server: './server'
   },
+  target: 'node',
   output: {
     path: __dirname + '/binback',
     filename: '[name].js',
@@ -27,9 +28,9 @@ module.exports = {
   devtool: "cheap-inline-module-source-map",
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "common"
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: "common"
+    // }),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     })
