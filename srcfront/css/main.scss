@@ -1,5 +1,9 @@
 //@import '_defines'
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss'
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 //@import '_common'
 
+.a {
+  color: #111;
+  text-align: left;
+}

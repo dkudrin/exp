@@ -4,7 +4,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
-const precss       = require('precss');
+const precss = require('precss');
 
 module.exports = {
   context: __dirname,
