@@ -32,10 +32,16 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
+      exclude: /\/node_modules\//,
       loader: 'babel',
       query: {
-        presets: ['es2015'],
-        plugins: ['transform-runtime']
+        presets: ['react','es2015'],
+        plugins: [
+          ["transform-runtime", {
+            "polyfill": true,
+            "regenerator": true
+          }]
+        ]
       }
     },
     {
@@ -51,7 +57,7 @@ module.exports = {
       test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
       exclude: /\/node_modules\//,
       loader: 'file?name=[path][name].[ext]'
-    },
+    }
     ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]

@@ -25,4 +25,10 @@ gulp.task('front', function (cb) {
     });
 });
 
-gulp.task('default', gulp.parallel('back', 'front'));
+gulp.task('copy_Index_html', function(cb) {
+    gulp.src('./srcfront/index.html')
+    .pipe(gulp.dest('./binfront'));
+    cb();
+});
+
+gulp.task('default', gulp.parallel('back', 'front', 'copy_Index_html'));
