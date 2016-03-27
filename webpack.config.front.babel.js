@@ -1,10 +1,8 @@
-'use strict';
-
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const autoprefixer = require('autoprefixer');
-const precss = require('precss');
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import autoprefixer from 'autoprefixer'
+import precss from 'precss'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
   context: __dirname,

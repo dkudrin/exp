@@ -1,17 +1,16 @@
-'use strict';
+import webpack from 'webpack'
+import fs from 'fs'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const webpack = require('webpack');
-var fs = require('fs');
 
-var nodeModules = {};
+let nodeModules = {}
 fs.readdirSync('node_modules')
   .filter(function(x) {
-    return ['.bin'].indexOf(x) === -1;
+    return ['.bin'].indexOf(x) === -1
   })
   .forEach(function(mod) {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
+    nodeModules[mod] = 'commonjs ' + mod
+  })
 
 module.exports = {
   context: __dirname + '/srcback',
