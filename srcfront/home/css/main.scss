@@ -1,0 +1,9 @@
+//@import '_defines'
+$icon-font-path: '../../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+//@import '_common'
+
+.a {
+  color: red;
+  text-align: left;
+}
