@@ -10,7 +10,7 @@ module.exports = {
   context: __dirname,
   entry: {
     '/js/app': './srcfront/js/app',
-    'mycss':'./srcfront/css/main.scss'
+    '/js/boots': './srcfront/js/boots'
   },
   output: {
     path: __dirname + '/binfront',
@@ -43,10 +43,6 @@ module.exports = {
           }]
         ]
       }
-    },
-    {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style', 'css!sass!postcss-loader')
     },
     {
       test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
