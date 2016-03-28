@@ -1,7 +1,6 @@
 import gulp from 'gulp'
 import webpack from 'webpack'
 import gutil from 'gulp-util'
-import sass from 'gulp-sass'
 import del from 'del'
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
@@ -27,13 +26,6 @@ gulp.task('front', function (cb) {
   })
 })
 
-gulp.task('sass', function (cb) {
-  gulp.src('./srcfront/css/main.scss')
-  .pipe(sass().on('error', sass.logError))
-  .pipe(gulp.dest('./binfront/css'))
-  
-  cb()
-})
 
 gulp.task('copy_Index_html', function(cb) {
   gulp.src('./srcfront/index.html')
@@ -49,4 +41,4 @@ gulp.task('clean', (cb) => {
   cb()
 })
 
-gulp.task('default', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html','sass')))
+gulp.task('default', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html')))

@@ -7,8 +7,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development'
 module.exports = {
   context: __dirname,
   entry: {
-    '/js/app': './srcfront/js/app',
-    '/js/boots': './srcfront/js/boots'
+    '/js/app': './srcfront/app'
   },
   output: {
     path: __dirname + '/binfront',
@@ -24,7 +23,7 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
-    new ExtractTextPlugin('my.css')
+    new ExtractTextPlugin('/css/app.css')
   ],
   
   module: {
@@ -41,6 +40,10 @@ module.exports = {
           }]
         ]
       }
+    },
+    {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract('style', 'css!sass!postcss-loader')
     },
     {
       test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
