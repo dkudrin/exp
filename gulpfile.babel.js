@@ -34,6 +34,13 @@ gulp.task('copy_Index_html', function(cb) {
   cb()
 })
 
+gulp.task('copy_img', function(cb) {
+  gulp.src('./srcfront/img/*')
+  .pipe(gulp.dest('./binfront/img/'))
+  
+  cb()
+})
+
 gulp.task('clean', (cb) => {
   del(['binback/*', 'binfront/*']).then(paths => {
   	console.log('Deleted files and folders:\n', paths.join('\n'))
@@ -41,4 +48,4 @@ gulp.task('clean', (cb) => {
   cb()
 })
 
-gulp.task('default', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html')))
+gulp.task('default', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html','copy_img')))
