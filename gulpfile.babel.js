@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import watch from 'gulp-watch'
 import webpack from 'webpack'
 import gutil from 'gulp-util'
 import del from 'del'
@@ -48,4 +49,12 @@ gulp.task('clean', (cb) => {
   cb()
 })
 
-gulp.task('default', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html','copy_img')))
+gulp.task('build', gulp.series('clean', gulp.parallel('back', 'front', 'copy_Index_html','copy_img')))
+
+gulp.task('watch', (cb) => {
+  gulp.watch('./srcfront/img/*', gulp.series('copy_img'))
+  gulp.watch('./srcfront/img/*', gulp.series('copy_img'))
+  cb()
+})
+
+gulp.task('dev',  gulp.series('build', 'watch'))
